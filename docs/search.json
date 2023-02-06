@@ -11,7 +11,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this blog"
+    "text": "Welcome to Pulling Threads, a blog about how to make the most of the R packages phyf and fibre. Together these R packages help you perform phylogenetic comparative analysis with a fast and flexible modelling framework. I (the developer: Russell Dinnage) post tutorials here periodically, so keep checking back!"
   },
   {
     "objectID": "posts/post-with-code/index.html",
