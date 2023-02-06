@@ -1,8 +1,8 @@
 ---
 title: "About"
-image: profile.jpg
+image: logos.png
 about:
-  template: jolla
+  template: marquee
   links:
     - icon: twitter
       text: Twitter
