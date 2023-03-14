@@ -1,0 +1,20 @@
+---
+title: "Introduction to {phyf}"
+author: "RUssell Dinnage"
+date: "2023-03-13"
+categories: [tutorials]
+---
+
+This is the first post in the 'Pulling Threads' blog, a blog devoted to two R packages that work together to do phylogenetic comparative statistical modeling in a very fast and flexible way. These two packages are: {phyf} and {fibre}. {phyf} implements a new data structure for phylogenies and phylogeny-associated data, while {fibre} implements fast and flexible models for modeling the evolution of traits on phylogenies. This blog will regularly post examples and tutorials about how to use these packages to fit powerful phylogenetic models. In this post, I will introduce {phyf}, which implements a new type of phylogenetic data structure based on a `tibble` (the `tidyverse` version of a `data.frame`), which contain 'phylogenetic flow' columns (for those who care about such things, this data type is based on `vctrs` objects from the `vctrs` package, also `tidyverse`). I like to abbreviate phylogenetic flows as simply 'phlows'.
+
+## What is a 'phylogenetic flow'?
+
+A phylogenetic flow is a way of representing a rooted phylogenetic tree in terms of 'flows' through its edges and nodes. A rooted phylogeny can be fully represented by a list of flows going from its root to each of its tips (or terminal nodes).It turns out this way of representing a tree allows for very computationally efficient methods for fitting phylogenetic models, but we won't get into that later. As it happens, this form is rather convenient for manipulating trees and data associated with them as well. Let's get into an example. In order to easily see the way a tree is represented in {phyf} we will convert a very simple phylogenetic tree into the core object class in {phyf}, which is known as a `pf` object. It is simple to create a `pf` object from a `phylo` object from the venerable R package for phylogenies `ape`. We will start by generating a small random tree and plotting it.
+
+```{r}
+library(ape)
+library(phyf)
+set.seed(42)
+tree <- rcoal(5)
+plot(tree)
+```
